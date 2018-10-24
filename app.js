@@ -4,6 +4,19 @@ const title = React.createElement(
     'Hello World'
 );
 
+const desc = React.createElement(
+  'p',
+  null,
+  'I just learned how to create a React node and render it into the DOM.'
+);
+
+const header = React.createElement(
+  'header',
+  null,
+  title,
+  desc
+);
+
 ReactDOM.render(
-  title,document.getElementById('root')
+  header,document.getElementById('root')
 );
