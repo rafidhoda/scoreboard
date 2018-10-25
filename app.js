@@ -1,29 +1,30 @@
-const Header = () => {
+const Header = (props) => {
+  console.log(props);
   return (
     <header>
-      <h1>Scoreboard</h1>
-      <span className="stats">Players: 1</span>
+      <h1>{props.title}</h1>
+      <span className="stats">Players: {props.totalPlayers}</span>
     </header>
   );
 }
 
-const Player = () => {
+const Player = (props) => {
   return (
     <div className="player">
       <span className="player-name">
-        Rafid
+        {props.name}
       </span>
 
-      <Counter />
+      <Counter score={props.score} />
     </div>
   );
 }
 
-const Counter = () => {
+const Counter = (props) => {
   return (
     <div className="counter">
       <button className="counter-action decrement"> - </button>
-      <span className="counter-score">35</span>
+      <span className="counter-score">{props.score}</span>
       <button className="counter-action increment"> + </button>
     </div>
   );
@@ -32,10 +33,13 @@ const Counter = () => {
 const App = () => {
   return (
     <div className="scoreboard">
-      <Header />
+      <Header title="Scoreboard" totalPlayers={1} />
 
       {/* Players list*/}
-      <Player />
+      <Player name="Rafid" score={50} />
+      <Player name="Øyvind" score={90} />
+      <Player name="Danial" score={85} />
+      <Player name="Lars" score={19} />
     </div>
   );
 }
